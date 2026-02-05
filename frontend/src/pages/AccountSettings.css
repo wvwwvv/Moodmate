@@ -1,0 +1,465 @@
+/* 기존 스타일 유지 */
+.account-settings-container {
+  border-top: none;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  background: #fdfbf1;
+  margin-top: 4px;
+}
+
+.account-settings-header {
+  padding: 10px 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fdfbf1;
+  border-bottom: 2px solid #ebe6d1;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #8b7355;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.back-btn:hover {
+  background: #f5f0e6;
+}
+
+.settings-title {
+  font-size: 22px;
+  font-weight: normal;
+  color: #8b7355;
+  margin: 0;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.account-settings-area {
+  margin-bottom: 0px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.account-settings-area::-webkit-scrollbar {
+  display: none;
+}
+
+.settings-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 15px 40px 15px;
+}
+
+.setting-item {
+  background: #fdfdfb;
+  border: 2px solid #ebe6d1;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.setting-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #5d4037;
+  margin: 0 0 15px 0;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 닉네임 수정 */
+.nickname-edit {
+  display: flex;
+  gap: 10px;
+}
+
+.nickname-edit input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #ebe6d1;
+  background: #fdfbf1;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #5d4037;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.nickname-edit input:focus {
+  outline: none;
+  border-color: #8b7355;
+}
+
+.nickname-edit input:disabled {
+  background: #f5f0e6;
+  color: #8b7355;
+}
+
+/* 약관 및 정책 섹션 */
+.terms-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.terms-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.terms-link-btn {
+  width: 100%;
+  padding: 14px 18px;
+  background: #fdfbf1;
+  border: 2px solid #ebe6d1;
+  border-radius: 10px;
+  color: #5d4037;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.terms-link-btn:hover {
+  background: #f5f0e6;
+  border-color: #d0c4b0;
+}
+
+.terms-agreed-date {
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: #f9f7f0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-label {
+  font-size: 14px;
+  color: #8b7355;
+  font-weight: 500;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.date-value {
+  font-size: 14px;
+  color: #5d4037;
+  font-weight: 600;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 버튼 공통 스타일 */
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  padding: 12px 24px;
+  border: 2px solid;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.btn-primary {
+  background: #889d83;
+  color: white;
+  border-color: #7d8d76;
+}
+
+.btn-primary:hover {
+  background: #7d8d76;
+}
+
+.btn-secondary {
+  background: #fdfdfb;
+  color: #5d4037;
+  border-color: #ebe6d1;
+}
+
+.btn-secondary:hover {
+  background: #f5f0e6;
+}
+
+/* 회원 탈퇴 */
+.danger-zone {
+  border-color: #ffcdd2;
+  background: rgba(255, 240, 240, 0.5);
+}
+
+.warning-texts {
+  color: #d32f2f;
+  font-size: 14px;
+  margin: 10px 0 20px 0;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.btn-danger {
+  background: rgba(255, 240, 240, 0.7);
+  color: #d32f2f;
+  border-color: #ffcdd2;
+  width: 100%;
+}
+
+.btn-danger:hover {
+  background: rgba(255, 240, 240, 0.9);
+}
+
+/* ===== Account 모달 스타일 ===== */
+.account-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: accountFadeIn 0.2s ease-out;
+  backdrop-filter: blur(2px);
+}
+
+.account-modal-content {
+  background: #fdfdfb;
+  border: 3px solid #ffcdd2;
+  border-radius: 20px;
+  padding: 45px 35px;
+  max-width: 400px;
+  width: 85%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: accountSlideUp 0.3s ease-out;
+  position: relative;
+}
+
+.account-modal-content.account-modal-success {
+  border-color: #c8e6c9;
+}
+
+.account-modal-content.account-modal-error {
+  border-color: #ffcdd2;
+}
+
+.account-modal-content.account-modal-confirm {
+  border-color: #ffcdd2;
+}
+
+.account-modal-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.account-modal-icon-success {
+  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+  color: #2e7d32;
+}
+
+.account-modal-icon-error {
+  background: linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 100%);
+  color: #c62828;
+}
+
+.account-modal-icon-info {
+  background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+  color: #1565c0;
+}
+
+.account-modal-icon-confirm {
+  background: linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 100%);
+  color: #c62828;
+}
+
+.account-modal-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #5d4037;
+  margin: 0 0 16px 0;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  line-height: 1.3;
+}
+
+.account-modal-message {
+  font-size: 17px;
+  color: #6d6d6d;
+  margin: 0 0 28px 0;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.account-modal-btn {
+  width: 100%;
+  padding: 15px 24px;
+  background: #889d83;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(136, 157, 131, 0.3);
+}
+
+.account-modal-btn:hover {
+  background: #7d8d76;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(136, 157, 131, 0.4);
+}
+
+.account-modal-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(136, 157, 131, 0.3);
+}
+
+.account-modal-buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.account-modal-btn-cancel {
+  background: #f5f0e6;
+  color: #5d4037;
+  border: 2px solid #ebe6d1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.account-modal-btn-cancel:hover {
+  background: #ebe6d1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.account-modal-btn-confirm {
+  background: #d32f2f;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.account-modal-btn-confirm:hover {
+  background: #b71c1c;
+  box-shadow: 0 6px 16px rgba(211, 47, 47, 0.4);
+}
+
+@keyframes accountFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes accountSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 반응형 - 기존 @media (max-width: 768px) 안에 추가 */
+@media (max-width: 768px) {
+  .account-modal-content {
+    padding: 30px 28px;
+    width: 70%;
+  }
+
+  .account-modal-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 34px;
+    margin-bottom: 20px;
+  }
+
+  .account-modal-title {
+    font-size: 23px;
+    margin-bottom: 14px;
+  }
+
+  .account-modal-message {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .account-modal-btn {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .account-settings-header {
+    padding: 20px 0px 10px 0;
+  }
+
+  .back-btn {
+    font-size: 16px;
+    padding-right: 10px;
+  }
+
+  .settings-title {
+    font-size: 18px;
+  }
+
+  .account-settings-container {
+    padding: 0 15px;
+  }
+
+  .setting-item {
+    padding: 20px;
+  }
+
+  .terms-link-btn {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+
+  .date-label,
+  .date-value {
+    font-size: 13px;
+  }
+}

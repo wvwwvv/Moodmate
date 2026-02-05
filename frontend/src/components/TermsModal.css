@@ -1,0 +1,310 @@
+/* 모달 오버레이 */
+.terms-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* 모달 컨테이너 */
+.terms-modal-container {
+  background: #fdfbf1;
+  border-radius: 16px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+/* 닫기 버튼 */
+.terms-modal-close {
+  position: sticky;
+  top: 18px;
+  right: 18px;
+  float: right;
+  background: #889d83;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  margin-bottom: -35px;
+}
+
+/* 모달 제목 - 스크롤 시 상단 고정 */
+.modal-terms-title {
+  position: sticky;
+  top: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #5d4037;
+  text-align: center;
+  margin: 0;
+  padding: 25px 20px 20px 20px;
+  border-bottom: 2px solid #ebe6d1;
+  background: #fdfbf1;
+  z-index: 5;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 모달 내용 */
+.modal-terms-content {
+  padding: 30px 25px;
+  line-height: 1.8;
+  color: #333;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 시행일자 */
+.modal-terms-content .effective-date {
+  font-size: 13px;
+  color: #8b7355;
+  margin: 0 0 25px 0;
+  font-weight: 500;
+}
+
+/* 소개 텍스트 */
+.modal-terms-content .intro-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 30px;
+  background: #fdfbf1 !important;
+  border: none !important;
+}
+
+/* 섹션 스타일 */
+.modal-terms-content section {
+  margin-bottom: 35px;
+}
+
+.modal-terms-content section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #5d4037;
+  margin: 0 0 15px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ebe6d1;
+}
+
+.modal-terms-content section h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6d5d4f;
+  margin: 20px 0 12px 0;
+}
+
+.modal-terms-content section h5 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #6d5d4f;
+  margin: 15px 0 10px 0;
+}
+
+.modal-terms-content section p {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 12px 0;
+  line-height: 1.7;
+}
+
+.modal-terms-content section ol {
+  padding-left: 25px;
+  margin: 15px 0;
+}
+
+.modal-terms-content section ol li {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+.modal-terms-content section ul {
+  list-style-type: disc;
+  padding-left: 25px;
+  margin: 12px 0;
+}
+
+.modal-terms-content section ul li {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+/* 중첩 리스트 */
+.modal-terms-content section ol li ul {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* 특별 텍스트 */
+.modal-terms-content .info-text {
+  font-size: 13px;
+  color: #666;
+  padding: 15px;
+  background: #f9f7f0;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.modal-terms-content .warning-text {
+  font-size: 13px;
+  color: #d32f2f;
+  margin: 12px 0;
+  font-weight: 500;
+}
+
+/* 연락처 박스 */
+.modal-terms-content .contact-box {
+  background: #f9f7f0;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  border: 2px solid #ebe6d1;
+}
+
+.modal-terms-content .contact-box h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #5d4037;
+}
+
+.modal-terms-content .contact-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.modal-terms-content .contact-box ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.modal-terms-content .contact-box ul li strong {
+  color: #8b7355;
+  margin-right: 8px;
+}
+
+/* 안내 문구 */
+.modal-terms-content .terms-notice {
+  background: #fff8e1;
+  padding: 18px;
+  border-radius: 10px;
+  border-left: 4px solid #ffc107;
+  margin-top: 30px;
+}
+
+.modal-terms-content .terms-notice p {
+  font-size: 13px;
+  color: #6d5d4f;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+/* 스크롤바 스타일 */
+.terms-modal-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terms-modal-container::-webkit-scrollbar-track {
+  background: #f5f0e6;
+  border-radius: 10px;
+}
+
+.terms-modal-container::-webkit-scrollbar-thumb {
+  background: #d0c4b0;
+  border-radius: 10px;
+}
+
+.terms-modal-container::-webkit-scrollbar-thumb:hover {
+  background: #b8ac98;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .terms-modal-overlay {
+    padding: 10px;
+  }
+
+  .terms-modal-container {
+    max-height: 90vh;
+    border-radius: 12px;
+  }
+
+  .modal-terms-title {
+    font-size: 20px;
+    padding: 20px 15px 15px 15px;
+  }
+
+  .terms-modal-close {
+    top: 13px;
+    right: 13px;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    margin-bottom: -32px;
+  }
+
+  .modal-terms-content {
+    padding: 25px 18px;
+  }
+
+  .modal-terms-content section h3 {
+    font-size: 16px;
+  }
+
+  .modal-terms-content section h4 {
+    font-size: 15px;
+  }
+
+  .modal-terms-content section h5 {
+    font-size: 14px;
+  }
+
+  .modal-terms-content section p,
+  .modal-terms-content section ol li,
+  .modal-terms-content section ul li {
+    font-size: 13px;
+  }
+}

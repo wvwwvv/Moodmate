@@ -1,0 +1,322 @@
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  background: #fdfbf1;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 15px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-name-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-level {
+  background: #889d83;
+  color: white;
+  border: 2px solid #7d8d76;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.user-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5d4037;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.menu-section {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0 15px;
+}
+
+.menu-item {
+  background-color: #fdfdfb;
+  border: 2px solid #ebe6d1;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #5d4037;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.menu-item:hover {
+  background: #f5f0e6;
+  transform: translateY(-2px);
+}
+
+.menu-item.logout {
+  background: rgba(255, 240, 240, 0.7);
+  border-color: #ffcdd2;
+  color: #d32f2f;
+}
+
+.menu-item.logout:hover {
+  background: rgba(255, 240, 240, 0.9);
+}
+
+.arrow {
+  font-size: 20px;
+  color: #8b7355;
+  font-weight: bold;
+}
+
+.version-info {
+  text-align: center;
+  margin-top: auto;
+  padding: 30px 20px;
+  color: #8b7355;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.version-info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.version-number {
+  font-weight: 600;
+  color: #5d4037;
+}
+
+@media (max-width: 768px) {
+  .menu-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 15px;
+  }
+}
+
+/* ===== Settings 모달 스타일 ===== */
+.settings-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: settingsFadeIn 0.2s ease-out;
+  backdrop-filter: blur(2px);
+}
+
+.settings-modal-content {
+  background: #fdfdfb;
+  border: 3px solid #ebe6d1;
+  border-radius: 20px;
+  padding: 45px 35px;
+  max-width: 400px;
+  width: 85%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: settingsSlideUp 0.3s ease-out;
+  position: relative;
+}
+
+.settings-modal-content.settings-modal-success {
+  border-color: #c8e6c9;
+}
+
+.settings-modal-content.settings-modal-error {
+  border-color: #ffcdd2;
+}
+
+.settings-modal-content.settings-modal-confirm {
+  border-color: #ffcdd2;
+}
+
+.settings-modal-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.settings-modal-icon-success {
+  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+  color: #2e7d32;
+}
+
+.settings-modal-icon-error {
+  background: linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 100%);
+  color: #c62828;
+}
+
+.settings-modal-icon-confirm {
+  background: linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 100%);
+  color: #c62828;
+}
+
+.settings-modal-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #5d4037;
+  margin: 0 0 16px 0;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  line-height: 1.3;
+}
+
+.settings-modal-message {
+  font-size: 17px;
+  color: #6d6d6d;
+  margin: 0 0 28px 0;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.settings-modal-btn {
+  width: 100%;
+  padding: 15px 24px;
+  background: #889d83;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(136, 157, 131, 0.3);
+}
+
+.settings-modal-btn:hover {
+  background: #7d8d76;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(136, 157, 131, 0.4);
+}
+
+.settings-modal-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(136, 157, 131, 0.3);
+}
+
+.settings-modal-buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.settings-modal-btn-cancel {
+  background: #f5f0e6;
+  color: #5d4037;
+  border: 2px solid #ebe6d1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.settings-modal-btn-cancel:hover {
+  background: #ebe6d1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.settings-modal-btn-confirm {
+  background: #d32f2f;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.settings-modal-btn-confirm:hover {
+  background: #b71c1c;
+  box-shadow: 0 6px 16px rgba(211, 47, 47, 0.4);
+}
+
+@keyframes settingsFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes settingsSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .settings-modal-content {
+    padding: 30px 28px;
+    width: 70%;
+  }
+
+  .settings-modal-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 34px;
+    margin-bottom: 20px;
+  }
+
+  .settings-modal-title {
+    font-size: 23px;
+    margin-bottom: 14px;
+  }
+
+  .settings-modal-message {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .settings-modal-btn {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+}

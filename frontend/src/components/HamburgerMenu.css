@@ -1,0 +1,258 @@
+/* ========== 햄버거 컨테이너 ========== */
+.hamburger-container {
+  position: fixed;
+  top: 13px;
+  right: 25px;
+  z-index: 1001;
+}
+
+/* ========== 햄버거 버튼 ========== */
+.hamburger-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+
+  /* 클릭/터치 효과 제거 */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+}
+
+/* 클릭 시 스타일 변화 방지 */
+.hamburger-button:active,
+.hamburger-button:focus {
+  outline: none;
+  transform: none;
+}
+
+/* ========== 햄버거 라인 (완벽한 X 모양) ========== */
+.hamburger-line {
+  width: 20px;
+  height: 2px;
+  background: #8b7355;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  transform-origin: center center;
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 기본 상태에서 라인 위치 */
+.hamburger-line:nth-child(1) {
+  top: 8px;
+}
+
+.hamburger-line:nth-child(2) {
+  top: 16px;
+}
+
+.hamburger-line:nth-child(3) {
+  top: 24px;
+}
+
+/* 햄버거 -> 완벽한 X 변환 */
+.hamburger-line.open:nth-child(1) {
+  top: 16px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.hamburger-line.open:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
+}
+
+.hamburger-line.open:nth-child(3) {
+  top: 16px;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+/* ========== 오버레이 (메뉴가 열렸을 때만 표시) ========== */
+.menu-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  z-index: 999 !important;
+  backdrop-filter: blur(2px) !important;
+  display: block !important;
+}
+
+/* ========== 슬라이드 메뉴 (중요: 기본 상태에서 완전히 숨김) ========== */
+.slide-menu {
+  position: fixed !important;
+  top: 0 !important;
+  right: -300px !important; /* 기본적으로 화면 밖에 숨김 */
+  width: 280px !important;
+  height: 100vh !important;
+  background: #fdfbf1 !important;
+  z-index: 1000 !important;
+  transition: right 0.3s ease !important;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+
+  /* 추가: 완전 숨김을 위한 속성들 */
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transform: translateX(100%) !important;
+}
+
+/* 메뉴가 열렸을 때만 표시 */
+.slide-menu.open {
+  right: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* ========== 메뉴 헤더 ========== */
+.hamburger-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0 10px 25px;
+}
+
+.hamburger-menu-header h3 {
+  margin: 0;
+  color: #5d4037;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ========== 메뉴 아이템들 (구체적인 클래스명) ========== */
+.hamburger-menu-items {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.hamburger-menu-item {
+  display: flex !important;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  /* 강제 적용 */
+  background-color: #fdfbf1 !important;
+  border: none !important;
+
+  /* 터치 효과 제거 */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+/* hover 상태도 명시적으로 설정 */
+.hamburger-menu-item:hover {
+  background-color: rgba(139, 115, 85, 0.05) !important;
+  border: none !important;
+  border-radius: 10px !important;
+}
+
+.hamburger-menu-item.active {
+  background-color: rgba(139, 115, 85, 0.1) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  border-left: 4px solid #8b7355;
+  transform: none;
+}
+
+.hamburger-menu-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  object-fit: contain;
+}
+
+/* ========== 모바일 반응형 ========== */
+@media (max-width: 768px) {
+  .hamburger-container {
+    top: 20px;
+    right: 15px;
+  }
+
+  .hamburger-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hamburger-line {
+    width: 18px;
+    height: 2px;
+  }
+
+  /* 모바일에서 라인 위치 조정 */
+  .hamburger-line:nth-child(1) {
+    top: 7px;
+  }
+
+  .hamburger-line:nth-child(2) {
+    top: 14px;
+  }
+
+  .hamburger-line:nth-child(3) {
+    top: 21px;
+  }
+
+  /* 모바일에서 X 위치 */
+  .hamburger-line.open:nth-child(1),
+  .hamburger-line.open:nth-child(3) {
+    top: 14px;
+  }
+
+  .slide-menu {
+    width: 250px !important;
+    right: -250px !important;
+  }
+
+  .hamburger-menu-header {
+    padding: 30px 20px 10px 20px;
+  }
+
+  .hamburger-menu-item {
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+
+  .hamburger-menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+  }
+
+  .hamburger-menu-label {
+    font-size: 18px;
+  }
+}
+
+/* ========== iOS Safari 추가 대응 ========== */
+@supports (-webkit-touch-callout: none) {
+  .hamburger-container,
+  .hamburger-button,
+  .hamburger-menu-item {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  }
+}
+
+/* ========== 추가: 브라우저별 호환성 보장 ========== */
+.slide-menu:not(.open) {
+  pointer-events: none !important;
+}

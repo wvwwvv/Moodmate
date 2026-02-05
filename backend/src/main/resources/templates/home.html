@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h2>Welcome!</h2>
+<p th:if="${kakaoName}" th:text="'안녕하세요, ' + ${kakaoName} + '님!'"></p>
+<p>카카오 로그인에 성공했습니다.</p>
+</body>
+</html>

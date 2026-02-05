@@ -1,0 +1,312 @@
+/* 약관 페이지 컨테이너 */
+.terms-container {
+  border-top: none;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  background: #fdfbf1;
+  margin-top: 4px;
+}
+
+/* 헤더 영역 */
+.terms-header {
+  padding: 10px 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fdfbf1;
+  border-bottom: 2px solid #ebe6d1;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #8b7355;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.back-btn:hover {
+  background: #f5f0e6;
+}
+
+.terms-title {
+  font-size: 22px;
+  font-weight: normal;
+  color: #8b7355;
+  margin: 0;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 본문 영역 - 스크롤 가능 */
+.terms-area {
+  margin-bottom: 0px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.terms-area::-webkit-scrollbar {
+  display: none;
+}
+
+.terms-content {
+  margin-top: 20px;
+  padding: 0 15px 40px 15px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* 시행일자 */
+.effective-date {
+  font-size: 14px;
+  color: #8b7355;
+  margin: 0 0 30px 0;
+  font-weight: 500;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 소개 텍스트 */
+.intro-text {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #fdfdfb;
+  border-left: 4px solid #8b7355;
+  border-radius: 4px;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 섹션 스타일 */
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #5d4037;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #ebe6d1;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+section h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #5d4037;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+section h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #8b7355;
+  margin-top: 16px;
+  margin-bottom: 10px;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+section p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 12px;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 리스트 스타일 */
+section ol {
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
+
+section ol li {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 12px;
+  padding-left: 8px;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+section ul {
+  margin-left: 20px;
+  margin-bottom: 16px;
+  list-style-type: disc;
+}
+
+section ul li {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+  padding-left: 8px;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 중첩된 리스트 */
+section ol li ul,
+section ul li ul {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* 강조 텍스트 */
+strong {
+  font-weight: 600;
+  color: #5d4037;
+}
+
+/* 공지사항 박스 */
+.terms-notice {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #f9f7f0;
+  border: 2px solid #ebe6d1;
+  border-radius: 8px;
+}
+
+.terms-notice p {
+  font-size: 14px;
+  color: #8b7355;
+  margin: 8px 0;
+  line-height: 1.6;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 정보 텍스트 */
+.info-text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  padding: 15px;
+  background: #f9f7f0;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 경고 텍스트 */
+.warning-text {
+  font-size: 14px;
+  color: #d32f2f;
+  margin-top: 10px;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 연락처 박스 */
+.contact-box {
+  background: #fdfdfb;
+  border: 2px solid #ebe6d1;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.contact-box h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #5d4037;
+  margin: 0 0 15px 0;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.contact-box ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-box ul li {
+  font-size: 15px;
+  color: #555;
+  padding: 8px 0;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.contact-box ul li strong {
+  color: #5d4037;
+  margin-right: 8px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .terms-header {
+    padding: 20px 0px 10px 0;
+  }
+
+  .back-btn {
+    font-size: 16px;
+    padding-right: 10px;
+  }
+
+  .terms-title {
+    font-size: 18px;
+  }
+
+  .terms-container {
+    padding: 0 15px;
+  }
+
+  .terms-content {
+    padding: 0 10px 40px 10px;
+  }
+
+  section h2 {
+    font-size: 18px;
+  }
+
+  section h3 {
+    font-size: 16px;
+  }
+
+  section h4 {
+    font-size: 14px;
+  }
+
+  section p,
+  section ol li,
+  section ul li {
+    font-size: 14px;
+  }
+
+  .intro-text {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .contact-box {
+    padding: 15px;
+  }
+
+  .contact-box ul li {
+    font-size: 14px;
+  }
+}

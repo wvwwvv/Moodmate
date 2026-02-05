@@ -1,0 +1,56 @@
+/* 로딩 스피너 컨테이너 */
+.loading-spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px 40px 20px; /* 상단 여백 크게 설정 (헤더 가림 방지) */
+  min-height: 200px;
+}
+
+/* 빙글빙글 도는 스피너 */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #ebe6d1;
+  border-top: 4px solid #889d83;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+/* 스피너 회전 애니메이션 */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 로딩 텍스트 */
+.loading-spinner-text {
+  font-size: 16px;
+  color: #8b7355;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  margin: 0;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .loading-spinner-container {
+    padding: 100px 20px 40px 20px;
+  }
+
+  .spinner {
+    width: 45px;
+    height: 45px;
+    border-width: 3.5px;
+  }
+
+  .loading-spinner-text {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,5 @@
+rootProject.name = 'EmotionDiaryProject'
+
+include 'backend'
+include 'frontend'
+include 'ai_service'

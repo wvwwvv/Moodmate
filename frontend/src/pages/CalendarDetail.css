@@ -1,0 +1,132 @@
+.calendar-detail-header {
+  padding: 10px 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fdfbf1;
+  border-bottom: 2px solid #ebe6d1;
+}
+
+.calendarDetail-container {
+  border-top: none;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  background: #fdfbf1;
+  margin-top: 4px;
+}
+
+.calendarDetail-area {
+  margin-bottom: 0px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.calendarDetail-box {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #8b7355;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.back-btn:hover {
+  background: #f5f0e6;
+}
+
+.detail-date {
+  font-size: 22px;
+  font-weight: normal;
+  color: #8b7355;
+  margin: 0;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* 채팅 영역 여백 조정 */
+.chat-container .chat-area {
+  padding-top: 20px;
+  margin-bottom: 20px; /* input이 없으므로 여백 줄임 */
+}
+
+.chat-container .chat-box {
+  margin-bottom: 20px; /* input이 없으므로 여백 줄임 */
+}
+
+@media (max-width: 768px) {
+  .calendar-detail-header {
+    padding: 20px 0px 10px 0;
+  }
+
+  .back-btn {
+    font-size: 16px;
+    padding-right: 10px;
+  }
+
+  .detail-date {
+    font-size: 18px;
+  }
+
+  .calendarDetail-container {
+    padding: 0 15px;
+  }
+}
+
+/* 기본 캐릭터 확대 비율 (챗 화면과 동일하게) */
+.calendarDetail-container .bot-character img {
+  transform: scale(5) !important;
+  transform-origin: center center !important;
+  object-fit: contain !important;
+}
+
+/* === 데스크톱: 레벨 4는 살짝 작은 버전 === */
+.calendarDetail-container .bot-character img[src*="_lv4"] {
+  transform: scale(2.8) !important;
+  transform-origin: center center !important;
+}
+
+/* === 데스크톱: 레벨 5는 조금 더 작은 버전 === */
+.calendarDetail-container .bot-character img[src*="_lv5"] {
+  transform: scale(2.6) !important;
+  transform-origin: center center !important;
+}
+
+/* === 모바일 전용 조정 === */
+@media (max-width: 768px) {
+  /* 모바일 기본 스케일 (전체적으로 낮춤) */
+  .calendarDetail-container .bot-character img {
+    transform: scale(5) !important;
+  }
+
+  /* 모바일 레벨 4 */
+  .calendarDetail-container .bot-character img[src*="_lv4"] {
+    transform: scale(2.3) !important;
+  }
+
+  /* 모바일 레벨 5 */
+  .calendarDetail-container .bot-character img[src*="_lv5"] {
+    transform: scale(2.1) !important;
+  }
+}

@@ -1,0 +1,346 @@
+/* ------------------------------------------- */
+/* --- 1. 기본 레이아웃 및 뷰포트 고정 설정 --- */
+/* ------------------------------------------- */
+
+/* 🚩 추가: 최상위 요소의 높이를 강제하여 모바일 뷰포트 높이 계산 오류 방지 */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* 최상위 스크롤 방지 */
+  margin: 0;
+  padding: 0;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  /* 100dvh로 설정하여 키보드 등장 시에도 전체 높이를 유지하도록 강제 */
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  background: #fdfbf1;
+  margin-bottom: 30px;
+  border-top: 2px solid #ebe6d1;
+  /* 데스크톱 헤더 높이에 맞게 조정 (4px 대신 75px을 사용해야 헤더 아래 공백 및 겹침 문제 해결) 
+     현재 사용자 코드 기반으로 재수정: */
+  margin-top: 4px; /* 사용자가 제공한 원본 값 유지 */
+}
+
+.chat-area {
+  flex: 1;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  /* 입력창이 가려지지 않도록 충분한 패딩 */
+  padding-bottom: 120px;
+}
+
+.chat-area::-webkit-scrollbar {
+  display: none;
+}
+
+/* ------------------------------------------- */
+/* --- 2. 채팅 메시지 스타일 --- */
+/* ------------------------------------------- */
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-bottom: 100px;
+}
+
+.chat-box::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-message-wrapper {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.chat-message-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.bot-wrapper {
+  justify-content: flex-start;
+}
+
+.user-wrapper {
+  justify-content: flex-end;
+}
+
+.chat-message-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.bot-character {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bot-character img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.message-bubble {
+  background: #f1f8dc;
+  padding: 15px 18px;
+  border-radius: 15px;
+  font-size: 18px;
+  color: #2e2e2e;
+  max-width: 600px;
+  line-height: 1.4;
+  white-space: pre-line;
+  border: 2px solid #cdd6bc;
+}
+
+.chat-message-user {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: #fcf9e5;
+  margin-right: 0;
+  border-radius: 15px;
+  max-width: 75%;
+  padding: 10px 14px;
+  line-height: 1.4;
+  word-break: break-word;
+  font-size: 18px;
+  border: 2px solid #ebe6d1;
+  white-space: pre-line;
+}
+
+.message-timestamp {
+  font-size: 13px;
+  color: #888;
+  margin-top: 5px;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------- */
+/* --- 3. 입력창 스타일 (데스크톱/기본) --- */
+/* ------------------------------------------- */
+
+.chat-input-bar {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* 데스크톱 너비 */
+  width: min(740px, calc(100vw - 60px));
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  /* 데스크톱 패딩: 위 3px, 좌우 15px, 아래 12px */
+  padding: 3px 15px 12px 15px;
+  z-index: 10;
+  background: #fdfbf1;
+  padding-top: 10px;
+  border-top: 2px solid #ebe6d1;
+}
+
+.chat-input-bar textarea {
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: #333;
+  background: transparent;
+  padding: 12px 14px;
+  border: 2px solid #ebe6d1;
+  border-radius: 15px;
+  background-color: #fdfdfb;
+
+  height: 50px;
+  min-height: 50px;
+  max-height: 76px;
+  resize: none;
+  overflow-y: auto;
+  line-height: 1.2;
+  box-sizing: border-box;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.chat-input-bar textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-input-bar textarea::placeholder {
+  color: #999;
+  font-size: 18px;
+}
+
+.chat-input-bar button {
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: #889d83;
+  color: white;
+  border: none;
+  padding: 13px 0;
+  border-radius: 15px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  min-width: 40px;
+  border: 2px solid #7d8d76;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------- */
+/* --- 4. 모바일 반응형 및 키보드 대응 (@media) --- */
+/* ------------------------------------------- */
+
+@media (max-width: 769px) {
+  .chat-container {
+    padding: 0 15px;
+    margin-bottom: 50px;
+    margin-top: 30px; /* 사용자가 제공한 원본 값 유지 */
+
+    /* 키보드 대응: 높이를 뷰포트 높이로 고정하고 전체 스크롤 방지 */
+    height: 100dvh !important;
+    min-height: 100dvh;
+    overflow-y: hidden !important;
+  }
+
+  /* 🚩 수정: 모바일 입력창 여백 조정 */
+  .chat-input-bar {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0; /* 중앙 정렬 대신 왼쪽에서 시작하도록 변경 */
+    transform: none; /* 중앙 정렬 해제 */
+
+    /* 너비를 100%로 설정하고 좌우 패딩을 줘서 여백 확보 */
+    width: 100%;
+    max-width: none;
+
+    /* 모바일 패딩 설정: 웹처럼 상하좌우 여백 살짝씩 추가 */
+    padding: 10px 15px 10px 15px;
+    padding-bottom: calc(
+      10px + env(safe-area-inset-bottom)
+    ); /* 하단에 여백과 안전 영역 확보 */
+
+    background: #fdfbf1;
+    border-top: 2px solid #ebe6d1;
+    box-sizing: border-box; /* 패딩이 너비를 초과하지 않도록 설정 */
+  }
+
+  .chat-area {
+    /* 입력창이 하단에 고정되므로, 메시지 영역의 하단 여백 추가 */
+    padding-bottom: 100px !important; /* 입력창 높이를 고려하여 충분한 공간 확보 */
+  }
+
+  /* === 기존 모바일 채팅 버블/캐릭터 크기 유지 === */
+  .bot-character {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .chat-message-wrapper {
+    margin-bottom: 5px;
+  }
+
+  .chat-message-container {
+    gap: 6px;
+  }
+
+  .message-bubble {
+    padding: 10px;
+  }
+
+  .chat-message-user {
+    padding: 10px;
+  }
+}
+
+/* ------------------------------------------- */
+/* --- 5. 캐릭터 크기 및 간격 조정 (기존 유지) --- */
+/* ------------------------------------------- */
+
+/* 데스크톱 캐릭터 크기 */
+.chat-message-wrapper.bot-wrapper .bot-character {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+/* 모바일 캐릭터 크기 */
+@media (max-width: 768px) {
+  .chat-message-wrapper.bot-wrapper .bot-character {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+/* 캐릭터 이미지 크기 (스케일 업) */
+.chat-message-wrapper.bot-wrapper .bot-character img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  transform: scale(5); /* ← 여기서 캐릭터 크게 만듦 */
+}
+
+/* 캐릭터-말풍선 간격 줄이기 */
+.chat-message-wrapper.bot-wrapper .chat-message-container {
+  gap: 8px !important; /* 기존 12px → 8px */
+  align-items: center !important;
+}
+
+/* CHAT 전용 레벨 4·5 크기 */
+.chat-container .bot-character img[src*="_lv4"],
+.chat-container .bot-character img[src*="_lv5"] {
+  transform: scale(2.5) !important;
+}
+/* === 모바일 키보드 대응: 입력창 사라짐 문제 해결 === */
+@media (max-width: 768px) {
+  .chat-container {
+    height: 100dvh !important;
+    min-height: 100dvh;
+    overflow-y: hidden !important;
+  }
+
+  /* 입력창은 fixed 유지 */
+  .chat-input-bar {
+    position: fixed !important;
+    bottom: 0 !important;
+    width: 100%; /* 이미 위에서 100%로 설정됨 */
+    left: 0;
+    transform: none;
+
+    /* 패딩 재설정 (위의 설정을 덮어쓰지 않도록 주의) */
+    padding-bottom: calc(10px + env(safe-area-inset-bottom)) !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    padding-top: 10px !important;
+  }
+
+  /* chat-area가 입력창 아래로 안 가려지게 아래 padding 추가 */
+  .chat-area {
+    padding-bottom: 120px !important;
+  }
+}

@@ -1,0 +1,301 @@
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  background: #fdfbf1;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 커스텀 네비게이션 */
+.custom-calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 25px 30px 30px 25px;
+}
+
+.nav-arrow {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #8b7355;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-arrow:hover {
+  background: #f5f0e6;
+  transform: scale(1.1);
+}
+
+.nav-selectors {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* react-select 드롭다운 */
+.year-dropdown,
+.month-dropdown {
+  min-width: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========== 캘린더 전체 스타일 ========== */
+.calendar-container .react-calendar {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+  border: none;
+  font-family: "SseulroneNetHandwrittenFont", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: transparent;
+}
+
+/* 캘린더 네비게이션 숨기기 (커스텀 제목 사용) */
+.calendar-container .react-calendar__navigation {
+  display: none;
+}
+
+/* 주 요일 헤더 */
+.calendar-container .react-calendar__month-view__weekdays {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  color: #8b7355;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(139, 115, 85, 0.2);
+}
+
+.calendar-container .react-calendar__month-view__weekdays__weekday {
+  text-align: center;
+  font-size: 16px;
+  flex: 1;
+}
+
+.calendar-container .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+  color: #8b7355;
+  font-weight: bold;
+}
+
+/* 날짜 그리드 */
+.calendar-container .react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+}
+
+/* 날짜 셀 - 네모나게 변경 */
+.calendar-container .react-calendar__tile {
+  height: 10vh !important;
+  text-align: center;
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+  border-radius: 4px !important;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #8b7355;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+
+/* hover 효과 - 배경색과 비슷한 톤으로 */
+.calendar-container .react-calendar__tile:hover {
+  background-color: #f5f0e6 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(139, 115, 85, 0.1);
+}
+
+/* 오늘 날짜 */
+.calendar-container .react-calendar__tile--now {
+  font-weight: bold;
+  border-color: #8b7355;
+  background: #f0e9d8 !important;
+}
+
+/* 다른 달 날짜는 연한 색으로 */
+.calendar-container .react-calendar__tile--neighboringMonth {
+  color: #d0c4b0 !important;
+  opacity: 0.5;
+}
+
+/* 선택된 날짜 - 배경색과 조화롭게 */
+.calendar-container .react-calendar__tile--active {
+  color: #5d4037 !important;
+  font-weight: bold;
+  border-radius: 10px !important;
+}
+
+/* 비활성화된 날짜 (감정 기록 없음) */
+.calendar-container .react-calendar__tile:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.calendar-container .react-calendar__tile:disabled:hover {
+  background-color: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* 감정 기록이 있는 날짜 스타일 */
+.calendar-container .tile-with-emotion {
+  background: none !important;
+}
+
+.tile-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* 캘린더 감정 아이콘 */
+.calendar-emotion-icon {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.day-number {
+  font-size: 16px;
+  color: #8b7355;
+  margin-bottom: 2px;
+  z-index: 2;
+  position: relative;
+}
+
+/* 이모지 표시 */
+.emoji-indicator {
+  font-size: 22px;
+  line-height: 1;
+  z-index: 2;
+  position: relative;
+}
+
+/* ========== 모바일 반응형 (768px 이하) ========== */
+@media (max-width: 768px) {
+  .calendar-container {
+    max-width: 100vw;
+  }
+
+  .custom-calendar-nav {
+    margin-top: 40px;
+    margin-bottom: 0px;
+  }
+
+  .nav-arrow {
+    font-size: 20px;
+    padding: 6px 12px;
+  }
+
+  /* react-select 모바일 스타일 */
+  .year-dropdown [class*="-singleValue"],
+  .month-dropdown [class*="-singleValue"] {
+    font-size: 20px !important;
+  }
+
+  .year-dropdown [class*="-option"],
+  .month-dropdown [class*="-option"] {
+    font-size: 14px !important;
+  }
+
+  .year-dropdown,
+  .month-dropdown {
+    min-width: 80px;
+  }
+
+  .calendar-container .react-calendar {
+    padding-top: 10px;
+  }
+
+  .calendar-container .react-calendar__tile {
+    height: 9vh !important;
+    font-size: 18px;
+  }
+
+  .calendar-emotion-icon {
+    width: 80%;
+    height: 80%;
+  }
+
+  .emotion-background {
+    width: 50px;
+    height: 50px;
+  }
+
+  .emoji-indicator {
+    font-size: 18px;
+  }
+
+  .day-number {
+    font-size: 14px;
+  }
+
+  .calendar-container .react-calendar__month-view__days {
+    gap: 8px;
+  }
+}
+/* ===== 캘린더 감정 캐릭터 확대 ===== */
+:root {
+  --calendar-char-scale-desktop: 3.2; /* 데스크탑 확대 배율 */
+  --calendar-char-scale-mobile: 2.5; /* 모바일 확대 배율 */
+}
+
+/* 기본 크기 */
+.calendar-emotion-icon {
+  width: 80%;
+  height: 80%;
+  transform: scale(var(--calendar-char-scale-desktop));
+  transform-origin: center center;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* CALENDAR 전용 레벨 4·5 축소 조절 */
+.calendar-container .calendar-emotion-icon[src*="_lv4"],
+.calendar-container .calendar-emotion-icon[src*="_lv5"] {
+  transform: scale(1.8) !important; /* 원하는 값 */
+  transform-origin: center center !important;
+}
+/* === 모바일: 기존 transform 제거 === */
+@media (max-width: 768px) {
+  .calendar-container .calendar-emotion-icon {
+    transform: none !important; /* 모바일 기본 스케일 제거 */
+  }
+
+  /* === 모바일: 레벨 1~3 크게 === */
+  .calendar-container .calendar-emotion-icon[src*="_lv1"],
+  .calendar-container .calendar-emotion-icon[src*="_lv2"],
+  .calendar-container .calendar-emotion-icon[src*="_lv3"] {
+    transform: scale(3.7) !important; /* 모바일에서 약간 줄인 버전 */
+    transform-origin: center center !important;
+  }
+
+  /* === 모바일: 레벨 4~5 작게 === */
+  .calendar-container .calendar-emotion-icon[src*="_lv4"],
+  .calendar-container .calendar-emotion-icon[src*="_lv5"] {
+    transform: scale(2.2) !important;
+    transform-origin: center center !important;
+  }
+}
