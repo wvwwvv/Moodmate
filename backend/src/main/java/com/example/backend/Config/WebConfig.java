@@ -12,7 +12,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**") // /api/** 경로에 대해서
                 .allowedOrigins(
                         "http://localhost:3000",
-                        //"http://{본인 ip}:3000",
                         //"https://moodmate-red.vercel.app"
                         "https://www.moodmate.site"
                 )
