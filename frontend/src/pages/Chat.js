@@ -15,10 +15,13 @@ const formatTime = (timeString) => {
   });
 };
 
-// ★ 이미지 URL 절대경로 변환
+// 이미지 URL 절대경로 변환
 const toAbsoluteUrl = (url) => {
   if (!url) return "";
   try {
+    // window.location.origin : 포트를 포함한 origin 주소
+    // 로컬 환경에서 http://localhost:3000/images/characters 반환함
+    // public은 url에서 빠짐
     return url.startsWith("http") ? url : `${window.location.origin}${url}`;
   } catch {
     return url;
@@ -85,7 +88,7 @@ function Chat() {
             type: log.sender.toLowerCase() === "chatbot" ? "bot" : "user",
             text: log.message,
             timestamp: log.timestamp
-              ? new Date(new Date(log.timestamp).getTime() + 9 * 60 * 60 * 1000)
+              ? new Date(new Date(log.timestamp).getTime()/* + 9 * 60 * 60 * 1000*/) // todo 9시간 time zone 문제
               : null,
             imageUrl: toAbsoluteUrl(
               log.characterImageUrl || "/images/characters/nothing.png"
@@ -135,9 +138,16 @@ function Chat() {
       });
       const botResponse = response.data;
 
+
+      // todo db에 저장된 time 올바른 값이지만, db에서 꺼내서 백으로부터 json으로 받은 time은 9시간 빠른 값이 들어옴
+      // todo 주석 처리한 코드는 9시간 더해주는 하드 코딩
       const adjustedTime = botResponse.time
-        ? new Date(new Date(botResponse.time).getTime() + 9 * 60 * 60 * 1000)
+        ? new Date(new Date(botResponse.time).getTime())
         : null;
+
+      /*const adjustedTime = botResponse.time
+          ? new Date(new Date(botResponse.time).getTime()  + 9 * 60 * 60 * 1000)
+          : null;*/
 
       const finalUserMessage = {
         type: "user",
